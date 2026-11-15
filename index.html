@@ -451,8 +451,12 @@ footer a{color:rgba(255,255,255,.7);font-weight:600}
 .promo-kicker{display:inline-block;background:#e8611a;color:#fff;border-radius:99px;padding:5px 12px;font-size:10px;font-weight:800;letter-spacing:1.4px;text-transform:uppercase;margin-bottom:12px}
 .promo-top h2{font-family:var(--display);font-size:27px;line-height:1.15;margin-bottom:8px}
 .promo-top p{font-size:13px;line-height:1.6;color:rgba(255,255,255,.8)}
-.promo-content{padding:20px 22px 22px}
-.promo-content p{font-size:13px;color:var(--muted);line-height:1.6;margin-bottom:15px}
+.promo-content{padding:18px 20px 20px;max-height:58vh;overflow-y:auto}
+.promo-content p{font-size:13px;color:var(--muted);line-height:1.6;margin-bottom:13px}
+.promo-details{display:grid;gap:7px;text-align:left;background:#fff;border:1px solid var(--border);border-radius:13px;padding:12px;margin-bottom:12px;color:var(--muted);font-size:12px;line-height:1.45}
+.promo-details strong{color:var(--brown);font-size:13px}
+.promo-links{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-bottom:13px}
+.promo-links a{display:flex;align-items:center;justify-content:center;text-align:center;min-height:42px;padding:8px 9px;border-radius:10px;background:rgba(232,97,26,.07);border:1px solid rgba(232,97,26,.15);color:var(--brown);font-size:11.5px;font-weight:700;line-height:1.35}
 .promo-actions{display:grid;gap:9px}
 .promo-action{display:block;padding:12px 16px;border-radius:12px;font-size:13px;font-weight:800;text-decoration:none}
 .promo-action.primary{background:var(--orange);color:#fff}
@@ -483,12 +487,26 @@ footer a{color:rgba(255,255,255,.7);font-weight:600}
       <p id="tasteHubGreetingLine">Wishing you a happy and refreshing day.</p>
     </div>
     <div class="promo-content">
-      <p id="tasteHubGreetingMessage">May your day be filled with happiness. Explore our fresh homemade vegetarian food, prepared with care.</p>
+      <p id="tasteHubGreetingMessage">Explore fresh, hygienic, 100% vegetarian homemade food, prepared with care in Kannuru, Bengaluru.</p>
+      <div class="promo-details">
+        <strong>🍽️ TasteHub – Homemade Vegetarian Food</strong>
+        <span>🌅 Breakfast: 6 AM–10 AM</span>
+        <span>☀️ Lunch: 12 PM–2 PM</span>
+        <span>🍿 Snacks: 3 PM–6 PM</span>
+        <span>🌙 Dinner: 7 PM–9 PM</span>
+        <span>🎉 Party &amp; Bulk Orders · 📦 Monthly Tiffin Subscriptions</span>
+      </div>
+      <div class="promo-links">
+        <a href="https://wa.me/c/919632035612" target="_blank" rel="noopener">📋 View Food Catalogue</a>
+        <a href="https://whatsapp.com/channel/0029VbBlrNaHltYEAdeeOA25" target="_blank" rel="noopener">📢 Follow WhatsApp Channel</a>
+        <a href="https://chat.whatsapp.com/KL7nnhmc2nbIgSyfYQBkv5" target="_blank" rel="noopener">👥 Join WhatsApp Community</a>
+        <a href="https://wa.me/919632035612" target="_blank" rel="noopener">💬 Contact / Order on WhatsApp</a>
+      </div>
       <div class="promo-actions">
-        <a id="tasteHubPromoAction" class="promo-action primary" href="#menu-section" onclick="closeTasteHubPromo()">Explore Today's Menu</a>
+        <a id="tasteHubPromoAction" class="promo-action primary" href="#menu-section" onclick="closeTasteHubPromo()">Explore Today’s Menu</a>
         <button class="promo-action secondary" type="button" onclick="closeTasteHubPromo()">Close</button>
       </div>
-      <div style="font-family:var(--display);font-weight:700;color:var(--orange);margin-top:14px">With regards, Team TasteHub</div>
+      <div style="font-family:var(--display);font-weight:700;color:var(--orange);margin-top:14px">Homemade with Care · Team TasteHub</div>
     </div>
   </div>
 </div>
@@ -680,7 +698,6 @@ footer a{color:rgba(255,255,255,.7);font-weight:600}
     <a href="https://wa.me/919632035612" target="_blank">💬 Contact Us</a>
     <a href="https://whatsapp.com/channel/0029VbBlrNaHltYEAdeeOA25" target="_blank" rel="noopener">📢 WhatsApp Channel</a>
     <a href="https://chat.whatsapp.com/KL7nnhmc2nbIgSyfYQBkv5" target="_blank" rel="noopener">👥 WhatsApp Community Group</a>
-    <a href="https://t.me/tastehub_meals" target="_blank">✈️ Telegram Channel</a>
     <a href="https://g.page/r/CSeVxdTlpEVFEBE/review" target="_blank">⭐ Leave a Review</a>
     <a href="https://wa.me/c/919632035612" target="_blank">📋 Food Catalogue</a>
     <a href="https://mantae.in/" target="_blank">📱 MÄNTÆ</a>
@@ -1128,7 +1145,7 @@ async function placeOrder() {
     if (currentDeliveryFee > 0) msg += `*Delivery: ₹${currentDeliveryFee}*\n`;
     msg += `*Grand Total: ₹${grandTotal}*`;
     if (notes) msg += `\n\nNotes: ${notes}`;
-    msg += `\n\nPlease confirm my order. Thank you! 🙏\n📢 Telegram: https://t.me/tastehub_meals`;
+    msg += `\n\nPlease confirm my order. Thank you! 🙏`;
 
     if (waWindow) {
       waWindow.location.href = `https://wa.me/${WA}?text=${encodeURIComponent(msg)}`;
@@ -1185,11 +1202,6 @@ function showBookingScreen(orderId, grandTotal, pay) {
           Keep ₹${grandTotal} ready at the time of delivery.
         </div>
       `}
-
-      <a href="https://t.me/tastehub_meals" target="_blank"
-        style="display:flex;align-items:center;justify-content:center;gap:8px;margin-top:12px;padding:11px;border-radius:12px;background:#229ED9;color:#fff;font-weight:700;font-size:13px;text-decoration:none">
-        ✈️ Join Telegram for daily menu updates
-      </a>
 
       <button onclick="closeCart();cart.clear();updateCartFab();renderMenu();"
         style="width:100%;margin-top:10px;padding:11px;border-radius:12px;border:1.5px solid var(--border);background:#fff;color:var(--muted);font-weight:600;font-size:13px;font-family:var(--font)">
