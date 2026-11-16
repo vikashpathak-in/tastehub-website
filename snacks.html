@@ -13,20 +13,20 @@
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 :root{
-  --bg:#FFF8F0;
+  --bg:#F3FAF8;
   --white:#FFFFFF;
-  --brown:#2C1810;
-  --brown2:#4a2918;
-  --orange:#E8611A;
-  --orange2:#F07A3A;
+  --brown:#173D3B;
+  --brown2:#285653;
+  --orange:#E56B55;
+  --orange2:#F08B73;
   --gold:#F0A81C;
   --green:#1B8C5A;
-  --muted:#7A5C4A;
-  --border:rgba(44,24,16,.09);
-  --border2:rgba(44,24,16,.14);
+  --muted:#557572;
+  --border:rgba(23,61,59,.09);
+  --border2:rgba(23,61,59,.15);
   --shadow:0 4px 20px rgba(44,24,16,.08);
   --shadow-md:0 8px 32px rgba(44,24,16,.11);
-  --shadow-lg:0 16px 48px rgba(44,24,16,.14);
+  --shadow-lg:0 16px 48px rgba(23,61,59,.15);
   --r:14px;
   --rLg:20px;
   --font:'DM Sans',system-ui,sans-serif;
@@ -83,7 +83,7 @@ button{font-family:var(--font);cursor:pointer}
 
 /* ━━━━━━━━━━━━━━ HERO ━━━━━━━━━━━━━━ */
 .hero{
-  background:linear-gradient(135deg,#2C1810 0%,#5a3020 60%,#8a4828 100%);
+  background:linear-gradient(135deg,#173D3B 0%,#5a3020 60%,#8a4828 100%);
   padding:32px 20px 28px;text-align:center;position:relative;overflow:hidden;
 }
 .hero::before{content:'';position:absolute;top:-60px;left:-60px;width:220px;height:220px;border-radius:50%;background:rgba(232,97,26,.12);pointer-events:none}
@@ -112,7 +112,7 @@ button{font-family:var(--font);cursor:pointer}
 
 /* ━━━━━━━━━━━━━━ OFFER STRIP ━━━━━━━━━━━━━━ */
 .offer-strip{
-  background:linear-gradient(135deg,#E8611A,#c44a0e);
+  background:linear-gradient(135deg,#E56B55,#c44a0e);
   padding:11px 16px;display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;
 }
 .os-tag{font-size:14px;font-weight:700;color:#fff;display:flex;align-items:center;gap:6px}
@@ -158,10 +158,10 @@ button{font-family:var(--font);cursor:pointer}
   font-size:10px;font-weight:800;padding:3px 9px;border-radius:99px;
   letter-spacing:.3px;
 }
-.badge-best{background:#E8611A;color:#fff}
+.badge-best{background:#E56B55;color:#fff}
 .badge-spicy{background:#c0392b;color:#fff}
 .badge-new{background:#1B8C5A;color:#fff}
-.badge-popular{background:#F0A81C;color:#2C1810}
+.badge-popular{background:#F0A81C;color:#173D3B}
 
 /* WISHLIST */
 .pc-wish{
@@ -364,7 +364,7 @@ button{font-family:var(--font);cursor:pointer}
   position:fixed;bottom:0;left:0;right:0;z-index:200;
   background:rgba(255,248,240,.97);backdrop-filter:blur(12px);
   border-top:1px solid var(--border);
-  box-shadow:0 -6px 24px rgba(44,24,16,.09);
+  box-shadow:0 -6px 24px rgba(23,61,59,.09);
 }
 .fb-inner{
   max-width:var(--max);margin:0 auto;
@@ -701,7 +701,7 @@ function renderCards() {
       </div>
       <div class="pc-body">
         <div class="pc-name">${p.name}</div>
-        ${p.quantity ? `<div style="font-size:12px;color:#7A5C4A;margin-top:4px">${p.quantity}</div>` : ''}
+        ${p.quantity ? `<div style="font-size:12px;color:#557572;margin-top:4px">${p.quantity}</div>` : ''}
       </div>
       <div class="pc-footer" id="pcf-${p.id}">${footerHTML}</div>
     </div>`;
