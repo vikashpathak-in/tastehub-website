@@ -11,7 +11,7 @@
 
 <!-- ── PWA: makes this website installable as an app ── -->
 <link rel="manifest" href="manifest.json"/>
-<meta name="theme-color" content="#E8611A"/>
+<meta name="theme-color" content="#E56B55"/>
 <meta name="mobile-web-app-capable" content="yes"/>
 <meta name="apple-mobile-web-app-capable" content="yes"/>
 <meta name="apple-mobile-web-app-status-bar-style" content="default"/>
@@ -27,15 +27,15 @@
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 :root{
-  --cream:#FFF8F0;
-  --brown:#2C1810;
-  --orange:#E8611A;
-  --orange2:#F07A3A;
+  --cream:#F3FAF8;
+  --brown:#173D3B;
+  --orange:#E56B55;
+  --orange2:#F08B73;
   --brown-light:#5C3D2E;
-  --muted:#7A5C4A;
-  --border:rgba(44,24,16,.10);
-  --shadow:0 8px 32px rgba(44,24,16,.10);
-  --shadow-lg:0 16px 56px rgba(44,24,16,.14);
+  --muted:#557572;
+  --border:rgba(23,61,59,.11);
+  --shadow:0 8px 32px rgba(23,61,59,.11);
+  --shadow-lg:0 16px 56px rgba(23,61,59,.15);
   --r:14px;
   --rLg:20px;
   --font:'DM Sans',system-ui,sans-serif;
@@ -297,11 +297,11 @@ header{
 .review-cta-text h4{font-family:var(--display);font-size:18px;font-weight:700;color:var(--brown);margin-bottom:4px}
 .review-cta-text p{font-size:13px;color:var(--muted);line-height:1.6;max-width:320px;margin-bottom:14px}
 .google-btn{display:inline-flex;align-items:center;gap:8px;padding:11px 22px;border-radius:99px;border:1.5px solid #FBBC04;background:rgba(251,188,4,.09);color:#7a5800;font-size:13.5px;font-weight:700;font-family:var(--font);text-decoration:none;transition:all .18s}
-.google-btn:hover{background:#FBBC04;color:#2C1810;transform:translateY(-1px);box-shadow:0 4px 14px rgba(251,188,4,.28)}
+.google-btn:hover{background:#FBBC04;color:#173D3B;transform:translateY(-1px);box-shadow:0 4px 14px rgba(251,188,4,.28)}
 
 /* ── PARTY SECTION ── */
 .party-card{
-  background:linear-gradient(135deg,#2C1810 0%,#4a2918 100%);
+  background:linear-gradient(135deg,#173D3B 0%,#285653 100%);
   border-radius:var(--rLg);padding:28px 24px;display:flex;
   align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;
   box-shadow:var(--shadow-lg);
@@ -333,7 +333,7 @@ header{
 .snacks-pills{display:flex;flex-wrap:wrap;gap:7px;margin-top:12px}
 .snacks-pills span{
   font-size:11.5px;font-weight:600;padding:4px 11px;border-radius:99px;
-  background:rgba(44,24,16,.07);border:1px solid rgba(44,24,16,.12);color:var(--brown);
+  background:rgba(44,24,16,.07);border:1px solid rgba(23,61,59,.13);color:var(--brown);
 }
 .snacks-wa-btn{border-color:rgba(44,24,16,.15)!important;color:var(--brown)!important}
 .snacks-wa-btn:hover{border-color:#25D366!important;color:#136843!important;background:rgba(37,211,102,.06)!important}
@@ -341,7 +341,7 @@ header{
 .se-row{display:flex;gap:10px}
 .se-row span{
   width:52px;height:52px;border-radius:14px;background:#fff;
-  border:1px solid rgba(44,24,16,.10);display:flex;align-items:center;
+  border:1px solid rgba(23,61,59,.11);display:flex;align-items:center;
   justify-content:center;font-size:26px;box-shadow:0 4px 12px rgba(44,24,16,.08);
 }
 
@@ -374,7 +374,7 @@ footer a{color:rgba(255,255,255,.7);font-weight:600}
 .closed-banner{
   display:flex;align-items:flex-start;gap:14px;
   padding:18px 20px;border-radius:var(--rLg);
-  background:linear-gradient(135deg,#2C1810,#4a2316);
+  background:linear-gradient(135deg,#173D3B,#4a2316);
   border:1px solid rgba(232,97,26,.25);
   margin-bottom:24px;
 }
@@ -464,6 +464,11 @@ footer a{color:rgba(255,255,255,.7);font-weight:600}
 .promo-close{position:absolute;top:10px;right:10px;width:34px;height:34px;border:0;border-radius:50%;background:rgba(255,255,255,.17);color:#fff;font-size:21px;line-height:1}
 @media(max-width:420px){.promo-top h2{font-size:24px}.promo-top{padding:24px 18px 19px}}
 
+
+/* Fresh teal & coral theme + responsive promotional banner */
+.tastehub-hero-banner{max-width:960px;margin:22px auto 8px;padding:clamp(24px,5vw,42px);border-radius:24px;overflow:hidden;position:relative;display:flex;align-items:center;justify-content:space-between;gap:20px;background:linear-gradient(120deg,#173D3B 0%,#28615B 62%,#E56B55 150%);color:#fff;box-shadow:0 14px 34px rgba(23,61,59,.18)}
+.tastehub-banner-copy{max-width:620px;position:relative;z-index:1}.tastehub-banner-kicker{display:inline-block;font-size:11px;font-weight:800;letter-spacing:1.5px;color:#FFE2D9;margin-bottom:12px}.tastehub-banner-copy h2{font-family:var(--display);font-size:clamp(25px,4vw,38px);line-height:1.15;margin:0 0 10px;color:#fff}.tastehub-banner-copy p{font-size:14px;line-height:1.65;color:rgba(255,255,255,.88);max-width:540px}.tastehub-banner-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}.tastehub-banner-actions a{display:inline-flex;align-items:center;justify-content:center;padding:11px 16px;border-radius:999px;font-size:12.5px;font-weight:800;background:#fff;color:#173D3B}.tastehub-banner-actions a+ a{background:#E56B55;color:#fff;border:1px solid rgba(255,255,255,.25)}.tastehub-banner-art{display:flex;align-items:center;gap:8px;flex-shrink:0}.tastehub-banner-art span{width:72px;height:72px;display:grid;place-items:center;border-radius:22px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.18);font-size:36px;transform:rotate(-5deg)}.tastehub-banner-art span:nth-child(2){transform:translateY(-16px) rotate(5deg)}.tastehub-banner-art span:nth-child(3){transform:rotate(7deg)}
+@media(max-width:640px){.tastehub-hero-banner{margin:14px 12px 6px;align-items:flex-start;padding:24px 20px;border-radius:18px}.tastehub-banner-art{display:none}.tastehub-banner-actions a{flex:1 1 150px}}
 </style>
 <link rel="canonical" href="https://vikashp23.github.io/tastehub-website/">
 <meta name="robots" content="index,follow,max-image-preview:large">
@@ -542,6 +547,20 @@ footer a{color:rgba(255,255,255,.7);font-weight:600}
     <a class="page-nav-tab" href="snacks.html">Homemade Snacks</a>
   </div>
 </nav>
+
+<!-- ── NEW TASTEHUB PROMOTIONAL BANNER ── -->
+<section class="tastehub-hero-banner" aria-label="TasteHub homemade vegetarian food">
+  <div class="tastehub-banner-copy">
+    <span class="tastehub-banner-kicker">FRESH • HOMEMADE • 100% VEGETARIAN</span>
+    <h2>Good food. Made with love. Served fresh.</h2>
+    <p>Everyday homemade meals, tasty snacks and special party orders in Kannuru, Bengaluru.</p>
+    <div class="tastehub-banner-actions">
+      <a href="https://wa.me/c/919632035612" target="_blank" rel="noopener">Explore Food Catalogue</a>
+      <a href="party.html">Plan a Party Order</a>
+    </div>
+  </div>
+  <div class="tastehub-banner-art" aria-hidden="true"><span>🥗</span><span>🍲</span><span>🫓</span></div>
+</section>
 
 <!-- ── TASTEHUB INTRO & ORDER INFORMATION ── -->
 <section class="section" style="padding:28px 0 12px">
@@ -860,7 +879,7 @@ function renderMenu() {
             <div class="mc-name">${item.name}</div>
           </div>
           <div class="mc-price ${!isAvailable ? 'mc-price--off' : ''}">₹${item.price}</div>
-          ${item.quantity ? `<div style="font-size:12px;color:#7A5C4A;margin-top:3px">${item.quantity}</div>` : ''}
+          ${item.quantity ? `<div style="font-size:12px;color:#557572;margin-top:3px">${item.quantity}</div>` : ''}
           ${isAvailable
             ? `<span class="avail-badge avail-on"> Available Today</span>`
             : (activeTab === 'breakfast' && item.tomorrow
@@ -1189,7 +1208,7 @@ function showBookingScreen(orderId, grandTotal, pay) {
       ${isUPI ? `
         <div style="text-align:center">
           <div class="pay-qr-wrap">
-            <img src="upi-qr.png" alt="UPI QR" onerror="this.parentElement.innerHTML='<div style=font-size:12px;color:#7A5C4A;text-align:center>Upload<br><b>upi-qr.png</b></div>'">
+            <img src="upi-qr.png" alt="UPI QR" onerror="this.parentElement.innerHTML='<div style=font-size:12px;color:#557572;text-align:center>Upload<br><b>upi-qr.png</b></div>'">
           </div>
           <div class="pay-upi" onclick="copyUPI()">📋 ${UPI_ID}</div>
           <div style="font-size:12px;color:var(--muted);margin-bottom:14px">Tap to copy · Scan QR to pay ₹${grandTotal}</div>
@@ -1351,7 +1370,7 @@ window.addEventListener('beforeinstallprompt', e => {
   banner.innerHTML = `
     <div style="
       position:fixed;bottom:90px;left:50%;transform:translateX(-50%);
-      background:#2C1810;color:#fff;border-radius:14px;
+      background:#173D3B;color:#fff;border-radius:14px;
       padding:12px 18px;display:flex;align-items:center;gap:12px;
       box-shadow:0 8px 28px rgba(0,0,0,.35);z-index:9999;
       font-family:'DM Sans',sans-serif;font-size:13.5px;
@@ -1363,7 +1382,7 @@ window.addEventListener('beforeinstallprompt', e => {
         <div style="font-size:11.5px;opacity:.7;margin-top:1px">Add to home screen for quick ordering</div>
       </div>
       <button id="installBtn" style="
-        background:#E8611A;color:#fff;border:none;border-radius:9px;
+        background:#E56B55;color:#fff;border:none;border-radius:9px;
         padding:8px 14px;font-weight:700;font-size:12.5px;cursor:pointer;
         font-family:inherit;white-space:nowrap;flex-shrink:0;
       ">Install</button>
