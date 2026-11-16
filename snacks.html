@@ -437,7 +437,6 @@ footer a{color:rgba(255,255,255,.68);font-weight:600}
     <span class="hb">🥜 Peanut Oil</span>
     <span class="hb">🌿 No Preservatives</span>
     <span class="hb">🎁 Gift Packs</span>
-    <span class="hb">🪔 Chhath Puja Special</span>
   </div>
 </div>
 
@@ -450,40 +449,8 @@ footer a{color:rgba(255,255,255,.68);font-weight:600}
   </div>
 </div>
 
-<!-- ━━━━━━━━ OFFER STRIP ━━━━━━━━ -->
-<div class="offer-strip">
-  <div class="os-tag"><span>🪔</span> Chhath Puja Thekua — ₹28 per piece</div>
-  <div class="os-divider"></div>
-  <div class="os-delivery"><span>📦</span> 500g ₹480 · 1kg ₹950</div>
-</div>
-
 <!-- ━━━━━━━━ PRODUCTS ━━━━━━━━ -->
 <div class="wrap">
-
-  <!-- CHHATH PUJA SPECIAL -->
-  <div class="section fest-section">
-    <div class="sec-label">Chhath Puja Special</div>
-    <div class="sec-title">Traditional Homemade Thekua</div>
-    <p class="sec-sub">Made in small batches for Chhath Puja. Pre-book your order on WhatsApp.</p>
-    <div class="fest-grid">
-      <div class="fest-card" style="grid-column:1/-1">
-        <div class="fest-tag">Chhath Puja Special</div>
-        <div class="fest-name">Homemade Thekua</div>
-        <div class="fest-ingredients"><b>Ingredients:</b> Wheat flour (atta), jaggery and traditional ingredients</div>
-        <div class="fest-prices">
-          <div class="fest-price-row"><span class="fp-label">Per piece (approx. 30g)</span><span class="fp-amt">₹28</span></div>
-          <div class="fest-price-row"><span class="fp-label">500g pack (approx. 17 pieces)</span><span class="fp-amt">₹480</span></div>
-          <div class="fest-price-row"><span class="fp-label">1kg pack (approx. 33 pieces)</span><span class="fp-amt">₹950</span></div>
-        </div>
-        <div class="fest-meta">
-          <div><b>Pre-booking:</b> Open now, subject to availability</div>
-          <div><b>Delivery:</b> Confirmed on WhatsApp</div>
-        </div>
-        <div class="fest-limited">Freshly prepared · Limited batches</div>
-        <button class="fest-btn" onclick="festOrderThekua()">Order Thekua on WhatsApp</button>
-      </div>
-    </div>
-  </div>
 
   <div class="section">
     <div class="sec-label">Our Collection</div>
@@ -563,42 +530,11 @@ footer a{color:rgba(255,255,255,.68);font-weight:600}
   </div>
 </div>
 
-<!-- CHHATH PUJA PROMOTION POPUP -->
-<div class="chhath-popup" id="chhathPopup" role="dialog" aria-modal="true" aria-labelledby="chhathPopupTitle">
-  <div class="chhath-popup-card">
-    <div class="chhath-popup-head">
-      <button class="chhath-popup-x" onclick="closeChhathPopup()" aria-label="Close popup">×</button>
-      <div class="chhath-popup-kicker">TasteHub · Festival Special</div>
-      <div class="chhath-popup-title" id="chhathPopupTitle">🪔 Chhath Puja Thekua</div>
-      <div class="chhath-popup-sub">Traditional homemade Thekua, freshly prepared in small batches</div>
-    </div>
-    <div class="chhath-popup-body">
-      <div class="chhath-popup-price">₹28 per piece · approx. 30g</div>
-      <div class="chhath-popup-detail">500g pack — ₹480 (approx. 17 pieces)<br>1kg pack — ₹950 (approx. 33 pieces)</div>
-      <div class="chhath-popup-actions">
-        <button class="chhath-popup-order" onclick="festOrderThekua()">Pre-book on WhatsApp</button>
-        <button class="chhath-popup-close" onclick="closeChhathPopup()">Maybe later</button>
-      </div>
-    </div>
-  </div>
-</div>
-
 <!-- TOAST -->
 <div class="toast" id="toast"></div>
 
 <script>
 const WA = "919632035612";
-
-// ── FESTIVAL CATALOG orders (remove this block once the festivals are over) ──
-function festOrderModak() {
-  const msg = `Hello TasteHub! I would like to order the Ganesh Chaturthi Special Ukadiche Modak.\n\nQuantity: 6 pieces\nPrice: ₹190\n\nPlease confirm my order and delivery details.`;
-  window.open(`https://wa.me/${WA}?text=${encodeURIComponent(msg)}`, "_blank");
-}
-
-function festOrderGujiyaThekua() {
-  const msg = `Hello TasteHub! I would like to order for Teej Puja.\n\nPlease let me know availability for:\n- Gujiya (Pedkiya) — ₹35/piece or ₹420 for 500g (approx. 14 pcs)\n- Thekua — ₹25/piece or ₹320 for 500g (approx. 14 pcs)\n\nMy order:\nItem: \nQuantity: \n\nPlease confirm my order and delivery details.`;
-  window.open(`https://wa.me/${WA}?text=${encodeURIComponent(msg)}`, "_blank");
-}
 
 // ── GOOGLE SHEETS BACKEND ──
 // Same Apps Script Web App that powers the Daily Menu (index.html / admin.html),
@@ -650,9 +586,9 @@ async function fetchSnacks() {
     const res = await fetch(`${SHEET_API}?type=snacks`);
     if (!res.ok) throw new Error("Bad response: " + res.status);
     const data = await res.json();
-    const rows = Array.isArray(data) ? data : [];
+    const rows = Array.isArray(data) ? data : (Array.isArray(data.items) ? data.items : []);
 
-    SNACKS = rows.map(r => {
+    SNACKS = rows.filter(r => r && r.item && (r.available === undefined || r.available === true || String(r.available).toLowerCase() === 'true' || String(r.available).toLowerCase() === 'yes')).map(r => {
       const cat = (r.category || "").toString().trim();
       return {
         id: imageIdFor(r.item) || ("snack-" + r.row), // matches uploaded image filenames
@@ -669,7 +605,7 @@ async function fetchSnacks() {
     updateBar();
   } catch (err) {
     console.error("Snacks fetch failed:", err);
-    grid.innerHTML = `<div class="sheet-error">⚠️ Menu unavailable. Please refresh or check back shortly.</div>`;
+    grid.innerHTML = `<div class="sheet-error">⚠️ Snack list is temporarily unavailable. Please refresh or message us on WhatsApp for today availability.</div>`;
   }
 }
 
@@ -701,6 +637,7 @@ function renderCards() {
       </div>
       <div class="pc-body">
         <div class="pc-name">${p.name}</div>
+        <div class="pc-price">₹${p.price}</div>
         ${p.quantity ? `<div style="font-size:12px;color:#557572;margin-top:4px">${p.quantity}</div>` : ''}
       </div>
       <div class="pc-footer" id="pcf-${p.id}">${footerHTML}</div>
@@ -878,7 +815,7 @@ function showToast(msg) {
   clearTimeout(t._t); t._t = setTimeout(() => t.style.display = "none", 2200);
 }
 
-\nfunction closeChhathPopup() {\n  document.getElementById("chhathPopup").classList.remove("show");\n  try { sessionStorage.setItem("tastehubChhathPopupSeen", "1"); } catch (e) {}\n}\nfunction showChhathPopup() {\n  let seen = false;\n  try { seen = sessionStorage.getItem("tastehubChhathPopupSeen") === "1"; } catch (e) {}\n  if (!seen) document.getElementById("chhathPopup").classList.add("show");\n}\n\n// ── INIT ──
+// ── INIT ──
 fetchSnacks();
 updateBar();
 setTimeout(showChhathPopup, 900);
