@@ -1303,7 +1303,17 @@ init();
   const morningMenuKey='tastehub_day_menu_reminder_seen';
   const nightBreakfastKey='tastehub_night_order_popup_seen';
   let greeting,icon,line,message,action,key;
-  if(nightBreakfastWindow){
+  const gajarPromoWindow = today === '2026-11-16' && (hour < 17);
+  const gajarPromoKey = 'tastehub_gajar_halwa_promo_seen';
+  if(gajarPromoWindow){
+    key=gajarPromoKey;
+    if(localStorage.getItem(key)===today) return;
+    greeting='🥕 Homemade Gajar Halwa!';
+    icon='🥕 ❤️';
+    line='Rich mawa (khoya) and a generous mix of dry fruits.';
+    message='200 gm – ₹220  |  400 gm – ₹400 (Save ₹40!). Place your order today, Monday 16 November, before 5 PM. Delivery Tuesday, 17 November from 4 PM onwards.';
+    action='Order Gajar Halwa on WhatsApp';
+  }else if(nightBreakfastWindow){
     key=nightBreakfastKey;
     if(localStorage.getItem(key)===today) return;
     greeting='Tomorrow’s Breakfast Menu Is Coming!';
@@ -1335,6 +1345,14 @@ init();
     document.getElementById('tasteHubGreetingLine').textContent=line;
     document.getElementById('tasteHubGreetingMessage').textContent=message;
     document.getElementById('tasteHubPromoAction').textContent=action;
+    if(key===gajarPromoKey){
+      document.querySelector('.promo-kicker').textContent='LIMITED WINTER SPECIAL';
+      document.querySelector('.promo-details').innerHTML='<strong>🥕 Gajar Halwa – Homemade with Love</strong><span>🥣 200 gm — ₹220</span><span>🎁 400 gm — ₹400 (Save ₹40!)</span><span>⏰ Order deadline: Monday, 16 November, before 5 PM</span><span>🚚 Delivery: Tuesday, 17 November, from 4 PM onwards</span>';
+      document.querySelector('.promo-links').innerHTML='<a href="https://wa.me/919632035612?text=Hi%20TasteHub%2C%20I%20would%20like%20to%20order%20Gajar%20Halwa.%20Please%20confirm%20availability." target="_blank" rel="noopener">💬 Order on WhatsApp</a><a href="https://wa.me/c/919632035612" target="_blank" rel="noopener">📋 View Food Catalogue</a>';
+      document.getElementById('tasteHubPromoAction').href='https://wa.me/919632035612?text=Hi%20TasteHub%2C%20I%20would%20like%20to%20order%20Gajar%20Halwa.%20Please%20confirm%20availability.';
+      document.getElementById('tasteHubPromoAction').target='_blank';
+      document.getElementById('tasteHubPromoAction').rel='noopener';
+    }
     popup.classList.add('show'); document.body.style.overflow='hidden';
   },700));
 })();
