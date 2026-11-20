@@ -491,6 +491,130 @@ footer a{color:rgba(255,255,255,.7);font-weight:600}
 @media(max-width:760px){.tastehub-meal-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:390px){.tastehub-meal-grid{grid-template-columns:1fr}}
 
+
+/* ── READABILITY + CLOUD KITCHEN LAYOUT REFINEMENT ── */
+:root{
+  --cream:#F7F5EF;
+  --brown:#173D35;
+  --orange:#C6533D;
+  --orange2:#E27A62;
+  --muted:#435B54;
+  --border:#D9E2DC;
+  --shadow:0 5px 20px rgba(23,61,53,.08);
+  --shadow-lg:0 12px 32px rgba(23,61,53,.13);
+}
+body{background:#F7F5EF;color:#203A33;font-size:15px;line-height:1.6}
+.wrap{width:min(100% - 32px,1080px);padding:0;margin-inline:auto}
+header{background:#FFFFFF;border-bottom:1px solid #D9E2DC;box-shadow:0 3px 16px rgba(23,61,53,.07)}
+.header-inner{min-height:76px;height:auto;padding:10px 0}
+.header-text h1{font-size:22px;color:#173D35}
+.header-text .subtitle{font-size:13px;color:#435B54}
+.page-nav{background:#173D35;border:0}
+.page-nav-inner{width:min(100% - 32px,1080px);padding:11px 0}
+.page-nav-tab{background:transparent;border:1px solid rgba(255,255,255,.35);color:#FFFFFF;font-size:14px;padding:11px 19px}
+.page-nav-tab:hover,.page-nav-tab.active{background:#FFFFFF;border-color:#FFFFFF;color:#173D35;box-shadow:none}
+.section{padding:42px 0}
+.section-label{font-size:12px;letter-spacing:1.2px;color:#A63E2D;font-weight:800}
+.section-title{font-size:clamp(25px,3vw,32px);color:#173D35;line-height:1.25}
+.section-sub{font-size:15px;color:#435B54;line-height:1.7}
+.tastehub-hero-banner{width:min(100% - 32px,1080px);margin:24px auto 12px;padding:clamp(28px,5vw,52px);background:linear-gradient(120deg,#173D35 0%,#24594D 72%,#397263 100%);border-radius:22px;box-shadow:0 12px 28px rgba(23,61,53,.16)}
+.tastehub-banner-kicker{font-size:12px;color:#FFE3D9;letter-spacing:1.3px}
+.tastehub-banner-copy h2{font-size:clamp(29px,4.2vw,44px);line-height:1.14;max-width:680px}
+.tastehub-banner-copy p{font-size:16px;line-height:1.75;color:#F2F7F3;max-width:590px}
+.tastehub-banner-actions a{font-size:14px;padding:13px 18px;min-height:46px}
+.tastehub-banner-actions a:first-child{background:#FFFFFF;color:#173D35}
+.tastehub-banner-actions a+a{background:#C6533D;color:#FFFFFF}
+.tastehub-meal-ads{padding:34px 0 18px}
+.tastehub-meal-grid{gap:16px}
+.tastehub-meal-ad{border:1px solid #D9E2DC;border-radius:16px;box-shadow:0 4px 16px rgba(23,61,53,.07)}
+.tastehub-meal-art{min-height:132px;background:#F4E9DD;font-size:58px}
+.tastehub-meal-ad:nth-child(2) .tastehub-meal-art{background:#E5EFE7}
+.tastehub-meal-ad:nth-child(3) .tastehub-meal-art{background:#F8EBDD}
+.tastehub-meal-ad:nth-child(4) .tastehub-meal-art{background:#E9EEEA}
+.tastehub-meal-copy{padding:17px;gap:9px}
+.tastehub-meal-copy h3{font-size:21px;color:#173D35}
+.tastehub-meal-copy p{font-size:14px;line-height:1.65;color:#435B54}
+.tastehub-meal-price{font-size:13px;line-height:1.55;color:#A63E2D}
+.tastehub-meal-copy a{font-size:13px;min-height:42px;background:#176B45;color:#FFFFFF;padding:11px 12px}
+.tastehub-google-cta{padding:20px;background:#FFFFFF;border:1px solid #D9E2DC}
+.tastehub-google-cta strong{font-size:17px;color:#173D35}
+.tastehub-google-cta p{font-size:14px;color:#435B54}
+.tastehub-google-actions a{font-size:13px;background:#173D35;color:#FFFFFF;padding:12px 16px}
+.tastehub-google-actions a+a{background:#FFFFFF;color:#173D35;border:1px solid #AABBB1}
+.timing-row,.menu-card,.review-card,.snacks-cta-card,.tastehub-google-cta{box-shadow:var(--shadow)}
+.timing-row-label,.timing-chip,.tab-btn,.page-nav-tab{font-size:13px}
+.timing-row-label{color:#435B54}
+.tab-btn{color:#334F46;border-color:#CBD8D0}
+.tab-btn.active{background:#173D35;border-color:#173D35;color:#FFFFFF;box-shadow:none}
+.menu-card{border-color:#D9E2DC;padding:16px;background:#FFFFFF}
+.mc-name{font-size:15px;color:#203A33}
+.mc-price{font-size:15px;color:#A63E2D}
+.add-btn{background:#F8E8E3;color:#963D2D;font-size:14px;padding:10px 16px}
+.add-btn:hover{background:#A63E2D;color:#FFFFFF}
+.veg-dot{border-color:#176B45;background:#DDF0E4}
+.btn-primary,.order-btn{background:#C6533D;color:#FFFFFF}
+.btn-wa{background:#176B45;color:#FFFFFF}
+.btn-outline{color:#173D35;border-color:#AABBB1}
+.reviews-section{background:#FFFFFF;border-top:1px solid #E2E8E3;border-bottom:1px solid #E2E8E3}
+.review-card{background:#F8F8F4;border-color:#D9E2DC}
+.rc-name{font-size:14px;color:#203A33}
+.rc-time,.rc-text{color:#435B54}
+.rc-text{font-size:14px;line-height:1.7}
+.party-card{background:linear-gradient(120deg,#173D35,#28594D)}
+.party-text p{font-size:15px;color:#E8F0EB}
+.snacks-cta-card{background:linear-gradient(120deg,#F7E9DF,#F3E2D8);border-color:#E7CFC3}
+.snacks-cta-card p{font-size:14px;color:#435B54}
+footer{background:#173D35;color:#E5EEE8;font-size:14px}
+footer a{color:#FFFFFF;text-decoration:underline}
+.promo-card{background:#FFFFFF}
+.promo-top{background:linear-gradient(120deg,#173D35,#28594D)}
+.promo-kicker{background:#C6533D}
+.promo-top p{color:#F2F7F3}
+.promo-content p,.promo-details{color:#435B54}
+.promo-details strong{color:#173D35}
+.promo-links a{background:#F8E8E3;border-color:#E9C9BE;color:#713A2E;font-size:12px}
+.promo-action.primary{background:#C6533D;color:#FFFFFF}
+.promo-action.secondary{color:#173D35}
+.status-banner{background:#FFF3E8;border-color:#E8C5A9;color:#633D28}
+.closed-banner{background:linear-gradient(120deg,#173D35,#28594D);border-color:#C6533D}
+.cb-sub{color:#F2F7F3}
+.cart-fab{background:#173D35}
+.cart-fab .badge{background:#C6533D}
+.form-group label{font-size:13px;color:#334F46}
+.form-group input,.form-group select,.form-group textarea{font-size:15px;color:#203A33;border-color:#B9C9BF}
+.pay-step-sub,.ci-price,.empty-cart{color:#435B54}
+@media(max-width:760px){
+ .wrap{width:calc(100% - 28px)}
+ .header-inner{gap:8px;min-height:68px}
+ .header-btns{gap:6px}
+ .header-btns .btn{padding:9px 11px;font-size:12px}
+ .tastehub-hero-banner{width:calc(100% - 24px);margin:14px 12px 8px;padding:27px 21px}
+ .tastehub-banner-copy h2{font-size:30px}
+ .tastehub-banner-copy p{font-size:15px}
+ .tastehub-meal-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}
+ .tastehub-meal-copy{padding:13px}
+ .tastehub-meal-copy h3{font-size:19px}
+ .tastehub-meal-copy p{font-size:13px}
+ .tastehub-meal-price{font-size:12px}
+ .section{padding:32px 0}
+ .section-sub{margin-bottom:20px}
+ .menu-card{align-items:flex-start;gap:9px;padding:12px}
+ .mc-img{width:60px;height:60px;flex-basis:60px}
+ .mc-name{font-size:14px}
+ .mc-right{align-self:center}
+}
+@media(max-width:420px){
+ .header-text h1{font-size:17px}
+ .header-btns .btn{font-size:11px;padding:8px 9px}
+ .tastehub-meal-grid{grid-template-columns:1fr}
+ .tastehub-meal-art{min-height:105px}
+ .tastehub-meal-copy{padding:16px}
+ .tastehub-meal-copy p{font-size:14px}
+ .tastehub-meal-price{font-size:13px}
+ .page-nav-inner{width:calc(100% - 24px)}
+ .page-nav-tab{padding:10px 13px;font-size:12px}
+}
+
 </style>
 <link rel="canonical" href="https://vikashpathak-in.github.io/tastehub-website/">
 <meta name="robots" content="index,follow,max-image-preview:large">
