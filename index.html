@@ -470,12 +470,12 @@ footer a{color:rgba(255,255,255,.7);font-weight:600}
 .tastehub-banner-copy{max-width:620px;position:relative;z-index:1}.tastehub-banner-kicker{display:inline-block;font-size:11px;font-weight:800;letter-spacing:1.5px;color:#FFE2D9;margin-bottom:12px}.tastehub-banner-copy h2{font-family:var(--display);font-size:clamp(25px,4vw,38px);line-height:1.15;margin:0 0 10px;color:#fff}.tastehub-banner-copy p{font-size:14px;line-height:1.65;color:rgba(255,255,255,.88);max-width:540px}.tastehub-banner-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}.tastehub-banner-actions a{display:inline-flex;align-items:center;justify-content:center;padding:11px 16px;border-radius:999px;font-size:12.5px;font-weight:800;background:#fff;color:#173D3B}.tastehub-banner-actions a+ a{background:#E56B55;color:#fff;border:1px solid rgba(255,255,255,.25)}.tastehub-banner-art{display:flex;align-items:center;gap:8px;flex-shrink:0}.tastehub-banner-art span{width:72px;height:72px;display:grid;place-items:center;border-radius:22px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.18);font-size:36px;transform:rotate(-5deg)}.tastehub-banner-art span:nth-child(2){transform:translateY(-16px) rotate(5deg)}.tastehub-banner-art span:nth-child(3){transform:rotate(7deg)}
 @media(max-width:640px){.tastehub-hero-banner{margin:14px 12px 6px;align-items:flex-start;padding:24px 20px;border-radius:18px}.tastehub-banner-art{display:none}.tastehub-banner-actions a{flex:1 1 150px}}
 </style>
-<link rel="canonical" href="https://vikashp23.github.io/tastehub-website/">
+<link rel="canonical" href="https://vikashpathak-in.github.io/tastehub-website/">
 <meta name="robots" content="index,follow,max-image-preview:large">
 <meta property="og:type" content="website">
 <meta property="og:title" content="TasteHub | Homemade Vegetarian Food in Kannuru, Bengaluru">
 <meta property="og:description" content="TasteHub serves homemade vegetarian food in Kannuru, Bengaluru, including breakfast, snacks, daily meals and party or bulk orders.">
-<meta property="og:url" content="https://vikashp23.github.io/tastehub-website/">
+<meta property="og:url" content="https://vikashpathak-in.github.io/tastehub-website/">
 <meta name="twitter:card" content="summary">
 </head>
 <body>
@@ -1319,9 +1319,19 @@ init();
   const morningMenuKey='tastehub_day_menu_reminder_seen';
   const nightBreakfastKey='tastehub_night_order_popup_seen';
   let greeting,icon,line,message,action,key;
+  const closureWindow = today >= '2026-11-20' && today <= '2026-12-20';
+  const closureKey = 'tastehub_temporary_closure_seen';
   const gajarPromoWindow = today === '2026-11-16' && (hour < 17);
   const gajarPromoKey = 'tastehub_gajar_halwa_promo_seen';
-  if(gajarPromoWindow){
+  if(closureWindow){
+    key=closureKey;
+    if(localStorage.getItem(key)===today) return;
+    greeting='Temporary Closure Notice';
+    icon='📢';
+    line='TasteHub is temporarily closed from 20 November to 20 December 2026.';
+    message='We are out of town during this period. TasteHub will reopen on Monday, 21 December 2026. Thank you for your understanding and continued support.';
+    action='Understood';
+  }else if(gajarPromoWindow){
     key=gajarPromoKey;
     if(localStorage.getItem(key)===today) return;
     greeting='🥕 Homemade Gajar Halwa!';
@@ -1361,7 +1371,13 @@ init();
     document.getElementById('tasteHubGreetingLine').textContent=line;
     document.getElementById('tasteHubGreetingMessage').textContent=message;
     document.getElementById('tasteHubPromoAction').textContent=action;
-    if(key===gajarPromoKey){
+    if(key===closureKey){
+      document.querySelector('.promo-kicker').textContent='IMPORTANT SERVICE UPDATE';
+      document.querySelector('.promo-details').innerHTML='<strong>📅 Temporary Closure</strong><span>⛔ Closed: 20 November – 20 December 2026</span><span>🚪 Reopening: Monday, 21 December 2026</span><span>ℹ️ Reason: Team TasteHub is out of town</span>';
+      document.querySelector('.promo-links').style.display='none';
+      document.querySelector('.promo-actions .secondary').style.display='none';
+      document.getElementById('tasteHubPromoAction').href='#';
+    }else if(key===gajarPromoKey){
       document.querySelector('.promo-kicker').textContent='LIMITED WINTER SPECIAL';
       document.querySelector('.promo-details').innerHTML='<strong>🥕 Gajar Halwa – Homemade with Love</strong><span>🥣 200 gm — ₹220</span><span>🎁 400 gm — ₹400 (Save ₹40!)</span><span>⏰ Order deadline: Monday, 16 November, before 5 PM</span><span>🚚 Delivery: Tuesday, 17 November, from 4 PM onwards</span>';
       document.querySelector('.promo-links').innerHTML='<a href="https://wa.me/919632035612?text=Hi%20TasteHub%2C%20I%20would%20like%20to%20order%20Gajar%20Halwa.%20Please%20confirm%20availability." target="_blank" rel="noopener">💬 Order on WhatsApp</a><a href="https://wa.me/c/919632035612" target="_blank" rel="noopener">📋 View Food Catalogue</a>';
