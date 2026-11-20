@@ -733,43 +733,7 @@ footer a{color:#FFFFFF;text-decoration:underline}
         <div class="tastehub-meal-copy"><h3>Dinner</h3><p>End your day with a simple, satisfying homemade vegetarian meal.</p><div class="tastehub-meal-price">Menu highlight: Sabudana Khichdi ₹100</div><a href="https://wa.me/919632035612?text=Hi%20TasteHub%2C%20please%20share%20the%20dinner%20menu." target="_blank" rel="noopener">Ask for Dinner Menu</a></div>
       </article>
     </div>
-    <div class="tastehub-google-cta">
-      <div><strong>Find TasteHub on Google</strong><p>Check our business profile, directions and customer reviews. Please check WhatsApp for reopening and current availability.</p></div>
-      <div class="tastehub-google-actions">
-        <a href="https://share.google/Ow25Mgm9pmmkQrpHk" target="_blank" rel="noopener">View Google Business Profile</a>
-        <a href="https://g.page/r/CSeVxdTlpEVFEBE/review" target="_blank" rel="noopener">Write a Google Review</a>
-      </div>
-    </div>
     <p style="font-size:11px;color:var(--muted);margin-top:10px">Menu highlights are examples from previously shared menus, not confirmation of today's availability or pricing. Please confirm the current menu on WhatsApp.</p>
-  </div>
-</section>
-
-<!-- ── TASTEHUB INTRO & ORDER INFORMATION ── -->
-<section class="section" style="padding:28px 0 12px">
-  <div class="wrap">
-    <div style="background:#fff;border:1px solid var(--border);border-radius:20px;padding:24px;box-shadow:var(--shadow)">
-      <div class="section-label">Homemade Vegetarian Food · Kannuru, Bengaluru</div>
-      <h2 class="section-title" style="font-size:28px">Fresh, Homemade Veg Meals</h2>
-      <p class="section-sub" style="margin-bottom:18px">100% vegetarian · Freshly prepared · Hygienic · Made with care</p>
-      <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px">
-        <span class="timing-chip open">🌅 Breakfast · 6 AM–10 AM</span>
-        <span class="timing-chip open">☀️ Lunch · 12 PM–2 PM</span>
-        <span class="timing-chip open">🍿 Snacks · 3 PM–6 PM</span>
-        <span class="timing-chip open">🌙 Dinner · 7 PM–9 PM</span>
-      </div>
-      <p style="font-size:14px;color:var(--muted);line-height:1.7;margin-bottom:18px">Explore our daily menu and order online. TasteHub also accepts party and bulk orders and offers monthly tiffin subscriptions.</p>
-      <div style="display:flex;flex-wrap:wrap;gap:10px">
-        <a class="btn btn-outline" href="https://mantae.in/" target="_blank" rel="noopener">📱 Order on MÄNTÆ</a>
-        <a class="btn btn-wa" href="https://wa.me/c/919632035612" target="_blank" rel="noopener">📋 WhatsApp Catalogue</a>
-        <a class="btn btn-outline" href="https://whatsapp.com/channel/0029VbBlrNaHltYEAdeeOA25" target="_blank" rel="noopener">📢 Follow WhatsApp Channel</a>
-        <a class="btn btn-outline" href="https://chat.whatsapp.com/KL7nnhmc2nbIgSyfYQBkv5" target="_blank" rel="noopener">👥 Join WhatsApp Group</a>
-      </div>
-      <div style="display:flex;flex-wrap:wrap;gap:14px;margin-top:18px;font-size:13px;color:var(--muted)">
-        <span>🎉 Party &amp; Bulk Orders</span>
-        <span>📦 Monthly Tiffin Subscriptions</span>
-        <a href="https://g.page/r/CSeVxdTlpEVFEBE/review" target="_blank" rel="noopener" style="color:var(--orange);font-weight:700">⭐ Leave a Google Review</a>
-      </div>
-    </div>
   </div>
 </section>
 
@@ -937,7 +901,6 @@ footer a{color:#FFFFFF;text-decoration:underline}
     <a href="https://wa.me/919632035612" target="_blank">💬 Contact Us</a>
     <a href="https://whatsapp.com/channel/0029VbBlrNaHltYEAdeeOA25" target="_blank" rel="noopener">📢 WhatsApp Channel</a>
     <a href="https://chat.whatsapp.com/KL7nnhmc2nbIgSyfYQBkv5" target="_blank" rel="noopener">👥 WhatsApp Community Group</a>
-    <a href="https://g.page/r/CSeVxdTlpEVFEBE/review" target="_blank">⭐ Leave a Review</a>
     <a href="https://wa.me/c/919632035612" target="_blank">📋 Food Catalogue</a>
     <a href="https://mantae.in/" target="_blank">📱 MÄNTÆ</a>
   </p>
@@ -1150,12 +1113,12 @@ function cartTotal() {
 
 function updateCartFab() {
   const fab = document.getElementById("cartFab");
-  const badge = document.getElementById("cartBadge");
   const { count, total } = cartTotal();
+  if (!fab) return;
   if (count > 0) {
     fab.classList.add("show");
-    badge.textContent = count;
-    fab.querySelector("span:not(.badge)") && (fab.childNodes[0].textContent = `🛒 ₹${total} `);
+    fab.innerHTML = `🛒 ₹${total} <span class="badge">${count}</span>`;
+    fab.onclick = openCart;
   } else {
     fab.classList.remove("show");
   }
@@ -1473,22 +1436,6 @@ function toast(msg) {
   clearTimeout(t._t);
   t._t = setTimeout(() => t.style.display = "none", 2200);
 }
-
-// ── CART FAB TEXT FIX ──
-function updateCartFabLabel() {
-  const fab = document.getElementById("cartFab");
-  const { count, total } = cartTotal();
-  if (count > 0) {
-    fab.classList.add("show");
-    fab.innerHTML = `🛒 ₹${total} <span class="badge">${count}</span>`;
-    fab.onclick = openCart;
-  } else {
-    fab.classList.remove("show");
-  }
-}
-
-// override updateCartFab to use better label
-function updateCartFab() { updateCartFabLabel(); }
 
 // ── INIT ──
 async function init() {
