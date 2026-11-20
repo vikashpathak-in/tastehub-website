@@ -469,6 +469,28 @@ footer a{color:rgba(255,255,255,.7);font-weight:600}
 .tastehub-hero-banner{max-width:960px;margin:22px auto 8px;padding:clamp(24px,5vw,42px);border-radius:24px;overflow:hidden;position:relative;display:flex;align-items:center;justify-content:space-between;gap:20px;background:linear-gradient(120deg,#173D3B 0%,#28615B 62%,#E56B55 150%);color:#fff;box-shadow:0 14px 34px rgba(23,61,59,.18)}
 .tastehub-banner-copy{max-width:620px;position:relative;z-index:1}.tastehub-banner-kicker{display:inline-block;font-size:11px;font-weight:800;letter-spacing:1.5px;color:#FFE2D9;margin-bottom:12px}.tastehub-banner-copy h2{font-family:var(--display);font-size:clamp(25px,4vw,38px);line-height:1.15;margin:0 0 10px;color:#fff}.tastehub-banner-copy p{font-size:14px;line-height:1.65;color:rgba(255,255,255,.88);max-width:540px}.tastehub-banner-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}.tastehub-banner-actions a{display:inline-flex;align-items:center;justify-content:center;padding:11px 16px;border-radius:999px;font-size:12.5px;font-weight:800;background:#fff;color:#173D3B}.tastehub-banner-actions a+ a{background:#E56B55;color:#fff;border:1px solid rgba(255,255,255,.25)}.tastehub-banner-art{display:flex;align-items:center;gap:8px;flex-shrink:0}.tastehub-banner-art span{width:72px;height:72px;display:grid;place-items:center;border-radius:22px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.18);font-size:36px;transform:rotate(-5deg)}.tastehub-banner-art span:nth-child(2){transform:translateY(-16px) rotate(5deg)}.tastehub-banner-art span:nth-child(3){transform:rotate(7deg)}
 @media(max-width:640px){.tastehub-hero-banner{margin:14px 12px 6px;align-items:flex-start;padding:24px 20px;border-radius:18px}.tastehub-banner-art{display:none}.tastehub-banner-actions a{flex:1 1 150px}}
+
+/* Four-meal promotional showcase */
+.tastehub-meal-ads{padding:26px 0 12px}
+.tastehub-meal-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.tastehub-meal-ad{background:#fff;border:1px solid var(--border);border-radius:18px;overflow:hidden;box-shadow:var(--shadow);display:flex;flex-direction:column}
+.tastehub-meal-art{min-height:116px;display:grid;place-items:center;font-size:54px;background:linear-gradient(135deg,#fff0dc,#ffe1c8)}
+.tastehub-meal-ad:nth-child(2) .tastehub-meal-art{background:linear-gradient(135deg,#e8f5e9,#c8e6c9)}
+.tastehub-meal-ad:nth-child(3) .tastehub-meal-art{background:linear-gradient(135deg,#fff3e0,#ffe0b2)}
+.tastehub-meal-ad:nth-child(4) .tastehub-meal-art{background:linear-gradient(135deg,#e8eaf6,#d1c4e9)}
+.tastehub-meal-copy{padding:14px;display:flex;flex-direction:column;gap:7px;flex:1}
+.tastehub-meal-copy h3{font-family:var(--display);font-size:18px;color:var(--brown)}
+.tastehub-meal-copy p{font-size:12.5px;line-height:1.55;color:var(--muted)}
+.tastehub-meal-price{font-size:13px;font-weight:800;color:var(--orange)}
+.tastehub-meal-copy a{margin-top:auto;display:inline-flex;justify-content:center;padding:9px 12px;border-radius:999px;background:#25D366;color:#fff;font-size:12px;font-weight:800}
+.tastehub-google-cta{margin-top:18px;padding:18px 20px;border-radius:18px;background:#fff;border:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap}
+.tastehub-google-cta p{font-size:13px;color:var(--muted);line-height:1.5}
+.tastehub-google-actions{display:flex;gap:8px;flex-wrap:wrap}
+.tastehub-google-actions a{padding:10px 14px;border-radius:999px;font-size:12px;font-weight:800;background:#173D3B;color:#fff}
+.tastehub-google-actions a+ a{background:#fff;color:#173D3B;border:1px solid var(--border)}
+@media(max-width:760px){.tastehub-meal-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:390px){.tastehub-meal-grid{grid-template-columns:1fr}}
+
 </style>
 <link rel="canonical" href="https://vikashpathak-in.github.io/tastehub-website/">
 <meta name="robots" content="index,follow,max-image-preview:large">
@@ -560,6 +582,42 @@ footer a{color:rgba(255,255,255,.7);font-weight:600}
     </div>
   </div>
   <div class="tastehub-banner-art" aria-hidden="true"><span>🥗</span><span>🍲</span><span>🫓</span></div>
+</section>
+
+
+<!-- Four-category TasteHub promotional advertisements -->
+<section class="section tastehub-meal-ads" aria-label="TasteHub meal advertisements">
+  <div class="wrap">
+    <div class="section-label">Explore TasteHub</div>
+    <h2 class="section-title">Something Homemade for Every Mealtime</h2>
+    <p class="section-sub">Four delicious categories. Fresh vegetarian food, prepared with care in Kannuru.</p>
+    <div class="tastehub-meal-grid">
+      <article class="tastehub-meal-ad">
+        <div class="tastehub-meal-art" aria-hidden="true">🍳</div>
+        <div class="tastehub-meal-copy"><h3>Breakfast</h3><p>Start your day with comforting homemade favourites.</p><div class="tastehub-meal-price">Menu highlight: Veg Poha ₹90 · Puri (4 pcs) + Aloo Curry ₹130</div><a href="https://wa.me/919632035612?text=Hi%20TasteHub%2C%20please%20share%20the%20breakfast%20menu." target="_blank" rel="noopener">Ask for Breakfast Menu</a></div>
+      </article>
+      <article class="tastehub-meal-ad">
+        <div class="tastehub-meal-art" aria-hidden="true">🍱</div>
+        <div class="tastehub-meal-copy"><h3>Lunch</h3><p>Wholesome vegetarian meals for your midday break. Ask us for the current daily menu.</p><div class="tastehub-meal-price">Daily menu · Items and prices vary</div><a href="https://wa.me/919632035612?text=Hi%20TasteHub%2C%20please%20share%20today%27s%20lunch%20menu." target="_blank" rel="noopener">Ask for Lunch Menu</a></div>
+      </article>
+      <article class="tastehub-meal-ad">
+        <div class="tastehub-meal-art" aria-hidden="true">🥪</div>
+        <div class="tastehub-meal-copy"><h3>Snacks</h3><p>Homemade bites for tea time, evening cravings and sharing.</p><div class="tastehub-meal-price">Menu highlight: Aloo Paneer Sandwich (4 slices) ₹130</div><a href="https://wa.me/919632035612?text=Hi%20TasteHub%2C%20please%20share%20the%20snacks%20menu." target="_blank" rel="noopener">Ask for Snacks Menu</a></div>
+      </article>
+      <article class="tastehub-meal-ad">
+        <div class="tastehub-meal-art" aria-hidden="true">🌙</div>
+        <div class="tastehub-meal-copy"><h3>Dinner</h3><p>End your day with a simple, satisfying homemade vegetarian meal.</p><div class="tastehub-meal-price">Menu highlight: Sabudana Khichdi ₹100</div><a href="https://wa.me/919632035612?text=Hi%20TasteHub%2C%20please%20share%20the%20dinner%20menu." target="_blank" rel="noopener">Ask for Dinner Menu</a></div>
+      </article>
+    </div>
+    <div class="tastehub-google-cta">
+      <div><strong>Find TasteHub on Google</strong><p>Check our business profile, directions and customer reviews. Please check WhatsApp for reopening and current availability.</p></div>
+      <div class="tastehub-google-actions">
+        <a href="https://share.google/Ow25Mgm9pmmkQrpHk" target="_blank" rel="noopener">View Google Business Profile</a>
+        <a href="https://g.page/r/CSeVxdTlpEVFEBE/review" target="_blank" rel="noopener">Write a Google Review</a>
+      </div>
+    </div>
+    <p style="font-size:11px;color:var(--muted);margin-top:10px">Menu highlights are examples from previously shared menus, not confirmation of today's availability or pricing. Please confirm the current menu on WhatsApp.</p>
+  </div>
 </section>
 
 <!-- ── TASTEHUB INTRO & ORDER INFORMATION ── -->
