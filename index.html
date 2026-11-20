@@ -972,7 +972,7 @@ const WA = "919632035612";
 const UPI_ID = "email.vikashpathak-1@okicici";
 
 // ── SET THIS TO true ON HOLIDAYS / CLOSED DAYS ──
-const SHOP_CLOSED = false;
+const SHOP_CLOSED = true;
 
 // ── MENU DATA — now loaded live from Google Sheets ──
 // Edit items anytime from admin.html — this page fetches the latest menu automatically.
@@ -1018,9 +1018,9 @@ function renderTimingChips() {
     { label: "Dinner", cutoff: 22 },
   ];
   el.innerHTML = entries.map(e => {
-    const open = isOpen(e.cutoff);
+    const open = !SHOP_CLOSED && isOpen(e.cutoff);
     return `<span class="timing-chip ${open ? "open" : "closed"}">
-      ${open ? "✅" : "⏰"} ${e.label} ${cutoffLabel(e.cutoff)}
+      ${SHOP_CLOSED ? "🔒" : (open ? "✅" : "⏰")} ${e.label} ${SHOP_CLOSED ? "Temporarily Closed" : cutoffLabel(e.cutoff)}
     </span>`;
   }).join("");
 }
@@ -1068,7 +1068,10 @@ function renderMenu() {
   const banner = document.getElementById("statusBanner");
   const statusText = document.getElementById("statusText");
 
-  if (!SHOP_CLOSED && !windowOpen) {
+  if (SHOP_CLOSED) {
+    banner.classList.add("show");
+    statusText.textContent = "TasteHub is temporarily closed from 20 November to 20 December 2026. We plan to reopen on Monday, 21 December 2026.";
+  } else if (!windowOpen) {
     banner.classList.add("show");
     statusText.textContent = `Ordering is closed. ${section.label.replace(/[^\w\s]/g, "").trim()} orders open before ${cutoffLabel(section.cutoff)}.`;
   } else {
@@ -1101,11 +1104,13 @@ function renderMenu() {
           </div>
           <div class="mc-price ${!isAvailable ? 'mc-price--off' : ''}">₹${item.price}</div>
           ${item.quantity ? `<div style="font-size:12px;color:#557572;margin-top:3px">${item.quantity}</div>` : ''}
-          ${isAvailable
-            ? `<span class="avail-badge avail-on"> Available Today</span>`
-            : (activeTab === 'breakfast' && item.tomorrow
-              ? `<span class="avail-badge avail-tomorrow">📅 Coming Tomorrow</span>`
-              : `<span class="avail-badge avail-off">Not available today</span>`)
+          ${SHOP_CLOSED
+            ? `<span class="avail-badge avail-off">🔒 Temporarily Closed</span>`
+            : (isAvailable
+              ? `<span class="avail-badge avail-on">Available Today</span>`
+              : (activeTab === 'breakfast' && item.tomorrow
+                ? `<span class="avail-badge avail-tomorrow">📅 Coming Tomorrow</span>`
+                : `<span class="avail-badge avail-off">Not available today</span>`))
           }
         </div>
         <div class="mc-right">
