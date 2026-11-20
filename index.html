@@ -279,6 +279,18 @@ header{
 .empty-cart .ec-icon{font-size:48px;margin-bottom:12px}
 .empty-cart p{font-size:14px;font-weight:500}
 
+/* ── NEHA PROFILE ── */
+.founder-section{padding:40px 0;background:linear-gradient(135deg,#f7eee7 0%,#fff 100%)}
+.founder-card{display:grid;grid-template-columns:1fr;gap:18px;background:#fff;border:1px solid var(--border);border-radius:var(--rLg);padding:26px;box-shadow:var(--shadow)}
+.founder-kicker{font-size:11px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--orange);margin-bottom:8px}
+.founder-name{font-family:var(--display);font-size:27px;line-height:1.2;color:var(--brown);margin-bottom:5px}
+.founder-role{font-size:13px;font-weight:700;color:var(--muted);margin-bottom:14px}
+.founder-copy{font-size:14px;line-height:1.8;color:var(--muted);margin-bottom:10px}
+.founder-values{display:flex;flex-wrap:wrap;gap:8px;margin-top:15px}
+.founder-values span{font-size:12px;font-weight:600;color:var(--brown);background:rgba(23,61,59,.06);border:1px solid var(--border);padding:7px 11px;border-radius:99px}
+.founder-signoff{font-family:var(--display);font-size:17px;line-height:1.5;color:var(--brown);margin-top:18px}
+@media(min-width:700px){.founder-card{padding:34px 38px}.founder-name{font-size:31px}}
+
 /* ── REVIEWS SECTION ── */
 .reviews-section{background:#fff;padding:40px 0}
 .reviews-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px;margin-bottom:32px}
@@ -779,6 +791,30 @@ footer a{color:#FFFFFF;text-decoration:underline}
       </div>
     </div>
   </section>
+
+<section class="founder-section" id="neha-founder-profile" aria-labelledby="neha-founder-title">
+  <div class="wrap">
+    <div class="founder-card">
+      <div>
+        <div class="founder-kicker">Meet the person behind TasteHub</div>
+        <h2 class="founder-name" id="neha-founder-title">Neha Kumari</h2>
+        <div class="founder-role">Kitchen Owner &amp; Food Creator</div>
+        <p class="founder-copy">Neha is the heart behind TasteHub, a homemade vegetarian food venture built on her love for cooking and her desire to create something of her own.</p>
+        <p class="founder-copy">Her approach combines homemade traditional recipes with fresh vegetarian cooking, creative food presentation, and a strong focus on quality and hygiene. She believes that good food is not just about taste; it is also about care, preparation, and the happiness of the people being served.</p>
+        <p class="founder-copy">With a passion for exploring new things, Neha enjoys discovering ideas, trying new food preparations, and bringing variety to the TasteHub kitchen. Her aim is to make every meal feel thoughtfully prepared, fresh, and welcoming.</p>
+        <div class="founder-values" aria-label="Neha's kitchen values">
+          <span>Passion for cooking</span>
+          <span>Homemade traditional recipes</span>
+          <span>Quality &amp; hygiene</span>
+          <span>Creative food presentation</span>
+          <span>Love for serving people</span>
+          <span>Fresh vegetarian cooking</span>
+        </div>
+        <p class="founder-signoff">TasteHub is Neha’s way of sharing her love for food, one homemade vegetarian meal at a time.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- ── REVIEWS SECTION ── -->
 <section class="reviews-section">
